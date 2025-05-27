@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite English Pro | Ultimate Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --text-gradient: linear-gradient(90deg, #6c5ce7, #fd79a8, #00cec9);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --dark: #f5f6fa;
+            --light: #2d3436;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, color 0.2s;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-right: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--warning);
+            transform: translateY(-2px);
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80') no-repeat center center/cover;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 52, 54, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Amazing Button */
+        .amazing-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem;
+        }
+
+        .amazing-btn i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .amazing-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+
+        .amazing-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .amazing-btn:active {
+            transform: translateY(0);
+        }
+
+        .amazing-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.7s;
+        }
+
+        .amazing-btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Flashcard Section */
+        .flashcards {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .flashcard-container {
+            max-width: 600px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            background: white;
+        }
+
+        .flashcard-back {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Pronunciation Section */
+        .pronunciation {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .pronunciation-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .word-display {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .phonetic {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+        }
+
+        .practice-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .record-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 auto;
+        }
+
+        .record-btn:hover {
+            background: #e84393;
+            transform: translateY(-3px);
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-progress {
+            height: 10px;
+            background: #f1f1f1;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: #f1f1f1;
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: rgba(0, 184, 148, 0.1);
+        }
+
+        .option.incorrect {
+            border-color: var(--accent);
+            background: rgba(253, 121, 168, 0.1);
+        }
+
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--success);
+        }
+
+        /* Progress Tracking */
+        .progress-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background: #f1f1f1;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .user-progress-bar {
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-img {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-level {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .creator {
+            font-weight: 600;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .amazing-btn {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Elite English Pro</div>
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#courses"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="#flashcards"><i class="fas fa-layer-group"></i> Flashcards</a></li>
+                    <li><a href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a></li>
+                    <li><a href="#progress"><i class="fas fa-chart-line"></i> Progress</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master English Like Never Before</h1>
+                <p>The ultimate learning platform with interactive flashcards, pronunciation practice, quizzes, and progress tracking.</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="amazing-btn">Start Learning <i class="fas fa-arrow-right"></i></a>
+                    <a href="#quiz" class="amazing-btn btn-outline">Take Quiz <i class="fas fa-question"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Learn With Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="feature-title">Smart Learning</h3>
+                    <p>Our AI adapts to your learning style and focuses on your weak areas for maximum efficiency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3 class="feature-title">Pronunciation Practice</h3>
+                    <p>Improve your speaking with native-like pronunciation using our audio tools.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="feature-title">Interactive Flashcards</h3>
+                    <p>Learn vocabulary faster with our flip-card memory system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="flashcards" id="flashcards">
+        <div class="container">
+            <h2 class="section-title">Vocabulary Flashcards</h2>
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-front">
+                        <h3 id="flashcard-word">Loading...</h3>
+                    </div>
+                    <div class="flashcard-back">
+                        <h3 id="flashcard-definition">Definition</h3>
+                    </div>
+                </div>
+                <div class="flashcard-nav">
+                    <button class="amazing-btn" id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button class="amazing-btn" id="next-card">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pronunciation" id="pronunciation">
+        <div class="container">
+            <h2 class="section-title">Pronunciation Practice</h2>
+            <div class="pronunciation-card">
+                <div class="word-display" id="practice-word">Pronunciation</div>
+                <div class="phonetic" id="phonetic">/prəˌnʌn.siˈeɪ.ʃən/</div>
+                <button class="audio-btn" id="play-audio">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <p class="practice-text">Click the button above to hear the pronunciation. Then try repeating it yourself!</p>
+                <button class="record-btn" id="record-btn">
+                    <i class="fas fa-microphone"></i> Record Yourself
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">English Level Quiz</h2>
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h3>Test Your English Level</h3>
+                    <p>Answer 5 questions to discover your current English proficiency</p>
+                </div>
+                
+                <div class="quiz-progress">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="quiz-body" id="quiz-body">
+                    <div class="question" id="question">Question text goes here</div>
+                    <div class="options" id="options">
+                        <!-- Options will be inserted here by JavaScript -->
+                    </div>
+                    <div class="quiz-footer">
+                        <div class="question-count" id="question-count">Question 1 of 5</div>
+                        <button class="amazing-btn" id="next-btn" disabled>Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="quiz-result" id="quiz-result">
+                    <div class="result-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Your English Level: <span id="result-level">Intermediate</span></h3>
+                    <p id="result-text">You have a good foundation in English but still need to improve in some areas.</p>
+                    <a href="#courses" class="amazing-btn">View Recommended Courses <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="progress-section" id="progress">
+        <div class="container">
+            <h2 class="section-title">Your Learning Progress</h2>
+            <div class="progress-container">
+                <h3>Overall Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="user-progress-bar" id="user-progress"></div>
+                </div>
+                <p id="progress-percent">0% Complete</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="words-learned">0</div>
+                        <p>Words Learned</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="quizzes-taken">0</div>
+                        <p>Quizzes Taken</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="days-streak">0</div>
+                        <p>Day Streak</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="section-title">Recommended Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #00cec9, #0984e3);">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-level">Beginner</span>
+                        <h3 class="course-title">English Foundations</h3>
+                        <p>Build your basic vocabulary and grammar skills from the ground up.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 30 Lessons</span>
+                            <span><i class="fas fa-user-graduate"></i> 1,200 Students</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #fd79a8, #e84393);">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-level">Intermediate</span>
+                        <h3 class="course-title">Conversation Mastery</h3>
+                        <p>Develop fluency and confidence in everyday conversations.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 45 Lessons</span>
+                            <span><i class="fas fa-user-graduate"></i> 2,500 Students</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(135deg, #fdcb6e, #e17055);">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-level">Advanced</span>
+                        <h3 class="course-title">Business English</h3>
+                        <p>Master professional communication for the workplace.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 60 Lessons</span>
+                            <span><i class="fas fa-user-graduate"></i> 1,800 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Elite English Pro</h3>
+                    <p>Revolutionizing English learning through technology and innovative teaching methods.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                        <li><a href="#progress">Progress</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Grammar Guide</a></li>
+                        <li><a href="#">Vocabulary Builder</a></li>
+                        <li><a href="#">Pronunciation Tool</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Elite English Pro. All rights reserved. | Created by <span class="creator">Mikiyas</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // ==================== DARK MODE TOGGLE ====================
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Check system preference or localStorage
+        let currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateThemeIcon();
+        });
+
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // ==================== FLASHCARDS ====================
+        const flashcards = [
+            { word: "Eloquent", definition: "Fluent or persuasive in speaking or writing" },
+            { word: "Pragmatic", definition: "Dealing with things sensibly and realistically" },
+            { word: "Ubiquitous", definition: "Present, appearing, or found everywhere" },
+            { word: "Ephemeral", definition: "Lasting for a very short time" },
+            { word: "Serendipity", definition: "The occurrence of events by chance in a happy way" }
+        ];
+
+        const flashcardElement = document.getElementById('flashcard');
+        const flashcardWord = document.getElementById('flashcard-word');
+        const flashcardDefinition = document.getElementById('flashcard-definition');
+        const prevCardBtn = document.getElementById('prev-card');
+        const nextCardBtn = document.getElementById('next-card');
+        
+        let currentCard = 0;
+
+        // Initialize first flashcard
+        updateFlashcard();
+
+        // Flip card on click
+        flashcardElement.addEventListener('click', () => {
+            flashcardElement.classList.toggle('flipped');
+        });
+
+        // Navigation buttons
+        prevCardBtn.addEventListener('click', () => {
+            if (currentCard > 0) {
+                currentCard--;
+                updateFlashcard();
+            }
+        });
+
+        nextCardBtn.addEventListener('click', () => {
+            if (currentCard < flashcards.length - 1) {
+                currentCard++;
+                updateFlashcard();
+            }
+        });
+
+        function updateFlashcard() {
+            flashcardWord.textContent = flashcards[currentCard].word;
+            flashcardDefinition.textContent = flashcards[currentCard].definition;
+            flashcardElement.classList.remove('flipped');
+            
+            // Disable buttons when at start/end
+            prevCardBtn.disabled = currentCard === 0;
+            nextCardBtn.disabled = currentCard === flashcards.length - 1;
+        }
+
+        // ==================== PRONUNCIATION PRACTICE ====================
+        const practiceWords = [
+            { word: "Pronunciation", phonetic: "/prəˌnʌn.siˈeɪ.ʃən/" },
+            { word: "Entrepreneur", phonetic: "/ˌɒn.trə.prəˈnɜːr/" },
+            { word: "Rural", phonetic: "/ˈrʊə.rəl/" },
+            { word: "Sixth", phonetic: "/sɪksθ/" },
+            { word: "Anemone", phonetic: "/əˈnem.ə.ni/" }
+        ];
+
+        const practiceWordElement = document.getElementById('practice-word');
+        const phoneticElement = document.getElementById('phonetic');
+        const playAudioBtn = document.getElementById('play-audio');
+        const recordBtn = document.getElementById('record-btn');
+        
+        let currentWord = 0;
+
+        // Initialize first word
+        updatePracticeWord();
+
+        // Cycle through words every 5 seconds
+        setInterval(() => {
+            currentWord = (currentWord + 1) % practiceWords.length;
+            updatePracticeWord();
+        }, 8000);
+
+        function updatePracticeWord() {
+            practiceWordElement.textContent = practiceWords[currentWord].word;
+            phoneticElement.textContent = practiceWords[currentWord].phonetic;
+        }
+
+        // Play audio (simulated - in a real app, you'd use Web Audio API or pre-recorded files)
+        playAudioBtn.addEventListener('click', () => {
+            playAudioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            setTimeout(() => {
+                playAudioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }, 1000);
+        });
+
+        // Record button (simulated)
+        recordBtn.addEventListener('click', () => {
+            recordBtn.innerHTML = '<i class="fas fa-microphone"></i> Recording...';
+            setTimeout(() => {
+                recordBtn.innerHTML = '<i class="fas fa-microphone"></i> Record Yourself';
+                alert("Recording complete! (This is a simulation - real app would analyze your speech)");
+            }, 2000);
+        });
+
+        // ==================== QUIZ SYSTEM ====================
+        const quizQuestions = [
+            {
+                question: "Which sentence is grammatically correct?",
+                options: [
+                    "She don't like apples.",
+                    "She doesn't likes apples.",
+                    "She doesn't like apples.",
+                    "She not like apples."
+                ],
+                answer: 2
+            },
+            {
+                question: "What is the past tense of 'go'?",
+                options: [
+                    "goed",
+                    "went",
+                    "gone",
+                    "going"
+                ],
+                answer: 1
+            },
+            {
+                question: "Choose the correct word: I have ___ finished my homework.",
+                options: [
+                    "all",
+                    "already",
+                    "yet",
+                    "still"
+                ],
+                answer: 1
+            },
+            {
+                question: "Which word is a synonym for 'happy'?",
+                options: [
+                    "Sad",
+                    "Joyful",
+                    "Angry",
+                    "Tired"
+                ],
+                answer: 1
+            },
+            {
+                question: "Complete the sentence: If I ___ rich, I would travel the world.",
+                options: [
+                    "am",
+                    "was",
+                    "were",
+                    "will be"
+                ],
+                answer: 2
+            }
+        ];
+        
+        let quizCurrentQuestion = 0;
+        let quizScore = 0;
+        const quizBody = document.getElementById('quiz-body');
+        const quizResult = document.getElementById('quiz-result');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-btn');
+        const questionCountElement = document.getElementById('question-count');
+        const progressBar = document.getElementById('progress-bar');
+        const resultLevelElement = document.getElementById('result-level');
+        const resultTextElement = document.getElementById('result-text');
+        
+        // Load Question
+        function loadQuizQuestion() {
+            const question = quizQuestions[quizCurrentQuestion];
+            questionElement.textContent = question.question;
+            
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                optionElement.textContent = option;
+                optionElement.addEventListener('click', () => selectOption(index));
+                optionsElement.appendChild(optionElement);
+            });
+            
+            questionCountElement.textContent = `Question ${quizCurrentQuestion + 1} of ${quizQuestions.length}`;
+            progressBar.style.width = `${((quizCurrentQuestion) / quizQuestions.length) * 100}%`;
+            nextButton.disabled = true;
+        }
+        
+        // Select Option
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            nextButton.disabled = false;
+        }
+        
+        // Check Answer and Move to Next Question
+        function nextQuizQuestion() {
+            const selectedOption = document.querySelector('.option.selected');
+            if (!selectedOption) return;
+            
+            const selectedIndex = Array.from(document.querySelectorAll('.option')).indexOf(selectedOption);
+            const correctIndex = quizQuestions[quizCurrentQuestion].answer;
+            
+            // Show correct/incorrect
+            document.querySelectorAll('.option')[correctIndex].classList.add('correct');
+            if (selectedIndex !== correctIndex) {
+                selectedOption.classList.add('incorrect');
+            } else {
+                quizScore++;
+            }
+            
+            // Disable all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            nextButton.textContent = quizCurrentQuestion === quizQuestions.length - 1 ? 'See Results' : 'Next Question';
+            nextButton.disabled = false;
+            
+            // Move to next question or show results
+            nextButton.onclick = function() {
+                if (quizCurrentQuestion < quizQuestions.length - 1) {
+                    quizCurrentQuestion++;
+                    loadQuizQuestion();
+                } else {
+                    showQuizResults();
+                }
+            };
+        }
+        
+        // Show Results
+        function showQuizResults() {
+            quizBody.style.display = 'none';
+            quizResult.style.display = 'block';
+            progressBar.style.width = '100%';
+            
+            // Determine level based on score
+            let level, text;
+            const percentage = (quizScore / quizQuestions.length) * 100;
+            
+            if (percentage >= 80) {
+                level = "Advanced";
+                text = "Excellent! Your English is at an advanced level. You can handle complex conversations and understand nuanced language.";
+            } else if (percentage >= 60) {
+                level = "Upper Intermediate";
+                text = "Great job! You have a strong command of English but may still need practice with more complex structures.";
+            } else if (percentage >= 40) {
+                level = "Intermediate";
+                text = "Good work! You have a solid foundation but should focus on expanding your vocabulary and grammar knowledge.";
+            } else if (percentage >= 20) {
+                level = "Pre-Intermediate";
+                text = "You're making progress! Focus on basic grammar rules and building your vocabulary.";
+            } else {
+                level = "Beginner";
+                text = "Don't worry! Everyone starts somewhere. Focus on learning basic vocabulary and simple sentence structures.";
+            }
+            
+            resultLevelElement.textContent = level;
+            resultTextElement.textContent = text;
+            
+            // Update progress tracking
+            updateProgressStats();
+        }
+        
+        // Initialize Quiz
+        loadQuizQuestion();
+        nextButton.addEventListener('click', nextQuizQuestion);
+        
+        // ==================== PROGRESS TRACKING ====================
+        function updateProgressStats() {
+            // Get current stats from localStorage or initialize
+            let stats = JSON.parse(localStorage.getItem('englishProgress')) || {
+                wordsLearned: 0,
+                quizzesTaken: 0,
+                daysStreak: 0,
+                lastLogin: null
+            };
+            
+            // Update stats
+            stats.wordsLearned += flashcards.length;
+            stats.quizzesTaken += 1;
+            
+            // Check streak
+            const today = new Date().toDateString();
+            if (stats.lastLogin !== today) {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                if (stats.lastLogin === yesterday.toDateString()) {
+                    stats.daysStreak += 1;
+                } else {
+                    stats.daysStreak = 1;
+                }
+                stats.lastLogin = today;
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('englishProgress', JSON.stringify(stats));
+            
+            // Update UI
+            document.getElementById('words-learned').textContent = stats.wordsLearned;
+            document.getElementById('quizzes-taken').textContent = stats.quizzesTaken;
+            document.getElementById('days-streak').textContent = stats.daysStreak;
+            
+            // Calculate overall progress (simplified)
+            const overallProgress = Math.min(100, Math.floor((stats.wordsLearned / 500) * 100));
+            document.getElementById('user-progress').style.width = `${overallProgress}%`;
+            document.getElementById('progress-percent').textContent = `${overallProgress}% Complete`;
+        }
+        
+        // Initialize progress stats on page load
+        document.addEventListener('DOMContentLoaded', updateProgressStats);
+        
+        // ==================== SMOOTH SCROLLING ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
